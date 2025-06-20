@@ -1,0 +1,48 @@
+<!-- frontend/admin.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Administration - Demandes de Pièces</title>
+    <!-- On réutilise la même feuille de style pour l'instant -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <nav class="admin-nav">
+        <div class="nav-container">
+            <a href="admin.html">Gestion des Demandes</a>
+            <a href="admin-pieces.html">Gestion du Catalogue</a>
+            <a href="#" id="logout-button">Déconnexion</a>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Espace Administration</h1>
+            <p>Liste des demandes de recherche de pièces reçues.</p>
+        </header>
+        
+        <main>
+            <div id="loading-message">Chargement des demandes...</div>
+            <table id="demandes-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Client</th>
+                        <th>Téléphone</th>
+                        <th>Véhicule</th>
+                        <th>Description de la Pièce</th>
+                        <th>Statut / Action</th> <!-- L'en-tête est modifié ici -->
+                    </tr>
+                </thead>
+                <tbody id="demandes-list">
+                    <!-- Les lignes du tableau seront insérées ici par JavaScript -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <!-- On lie notre nouveau script JS -->
+    <script src="admin.js"></script>
+</body>
+</html>

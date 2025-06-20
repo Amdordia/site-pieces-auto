@@ -1,0 +1,152 @@
+/* frontend/style.css */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+header h1 {
+    color: #1a1a1a;
+    text-align: center;
+}
+header p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+form { display: flex; flex-direction: column; }
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+legend {
+    font-weight: bold;
+    color: #0056b3;
+    padding: 0 10px;
+}
+label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important */
+}
+textarea { resize: vertical; }
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover { background-color: #0056b3; }
+#form-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    display: none; /* Caché par défaut */
+}
+#form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+#form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+/* Style pour la page Admin */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+td small {
+    color: #666;
+}
+.status {
+    background-color: #007bff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+/* Style pour les menus de statut dans l'admin */
+.status-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.status-select option {
+    font-weight: normal;
+}
+/* Style pour la navigation de l'admin */
+.admin-nav {
+    background-color: #343a40;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+.nav-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.admin-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.admin-nav a:hover {
+    background-color: #495057;
+}
+#logout-button {
+    background-color: #dc3545;
+}
+.edit-btn { background-color: #ffc107; color: black; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+.delete-btn { background-color: #dc3545; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }

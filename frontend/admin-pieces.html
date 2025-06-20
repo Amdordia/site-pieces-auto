@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion du Catalogue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="admin-nav">
+        <div class="nav-container">
+            <a href="admin.html">Gestion des Demandes</a>
+            <a href="admin-pieces.html" style="background-color: #007bff;">Gestion du Catalogue</a>
+            <a href="#" id="logout-button">Déconnexion</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Gestion du Catalogue de Pièces</h1>
+        </header>
+
+        <section id="add-piece-section">
+            <h2>Ajouter une nouvelle pièce</h2>
+            <form id="add-piece-form">
+                <div id="form-message"></div>
+                <fieldset>
+                    <legend>Détails de la Pièce</legend>
+                    <label for="nom">Nom de la pièce</label>
+                    <input type="text" id="nom" required>
+
+                    <label for="reference">Référence (optionnel)</label>
+                    <input type="text" id="reference">
+
+                    <label for="prix">Prix (FCFA)</label>
+                    <input type="number" id="prix" step="0.01" required>
+
+                    <label for="categorie">Catégorie</label>
+                    <select id="categorie" required>
+                        <option value="">-- Choisir --</option>
+                        <option value="Moteur">Moteur</option>
+                        <option value="Carrosserie">Carrosserie</option>
+                        <option value="Freinage">Freinage</option>
+                        <option value="Électricité">Électricité</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                    
+                    <label for="compatibilite">Compatibilité (ex: Renault Clio 4 1.5 DCI)</label>
+                    <input type="text" id="compatibilite">
+                    
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3"></textarea>
+                </fieldset>
+                <button type="submit">Ajouter la Pièce</button>
+                <button type="button" id="cancel-edit-btn" style="display: none; background-color: #6c757d;">Annuler</button>
+            </form>
+        </section>
+        
+        <hr style="margin: 40px 0;">
+
+        <section id="catalog-list-section">
+            <h2>Mon Catalogue Actuel</h2>
+            <table id="pieces-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Référence</th>
+                        <th>Prix</th>
+                        <th>Catégorie</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="pieces-list">
+                    <!-- Les pièces seront chargées ici -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="admin-pieces.js"></script>
+</body>
+</html>

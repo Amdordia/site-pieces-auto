@@ -1,0 +1,27 @@
+<!-- frontend/login.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 400px;">
+        <header>
+            <h1>Connexion Espace Admin</h1>
+        </header>
+        <main>
+            <form id="login-form">
+                <div id="login-message"></div>
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <label for="motDePasse">Mot de passe</label>
+                <input type="password" id="motDePasse" required>
+                <button type="submit">Se connecter</button>
+            </form>
+        </main>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

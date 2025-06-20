@@ -1,0 +1,61 @@
+<!-- frontend/demande.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Pièce Auto sur Mesure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pièce introuvable ? Faites votre demande !</h1>
+            <p>Remplissez le formulaire ci-dessous et notre expert trouvera la pièce pour vous.</p>
+        </header>
+
+        <main>
+            <form id="demande-form">
+                <div id="form-message"></div>
+
+                <fieldset>
+                    <legend>Vos Informations</legend>
+                    <label for="nomClient">Nom complet</label>
+                    <input type="text" id="nomClient" name="nomClient" required>
+
+                    <label for="emailClient">Email</label>
+                    <input type="email" id="emailClient" name="emailClient" required>
+
+                    <label for="telephoneClient">Téléphone</label>
+                    <input type="tel" id="telephoneClient" name="telephoneClient" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Informations sur le Véhicule</legend>
+                    <label for="marqueVehicule">Marque</label>
+                    <input type="text" id="marqueVehicule" name="marqueVehicule" required>
+
+                    <label for="modeleVehicule">Modèle</label>
+                    <input type="text" id="modeleVehicule" name="modeleVehicule" required>
+
+                    <label for="anneeVehicule">Année</label>
+                    <input type="number" id="anneeVehicule" name="anneeVehicule" min="1950" max="2024" required>
+
+                    <label for="vinVehicule">Numéro de série (VIN) - <small>Recommandé</small></label>
+                    <input type="text" id="vinVehicule" name="vinVehicule" placeholder="Trouvable sur la carte grise (E)">
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Pièce Recherchée</legend>
+                    <label for="descriptionPiece">Décrivez la pièce le plus précisément possible</label>
+                    <textarea id="descriptionPiece" name="descriptionPiece" rows="5" required placeholder="Ex: Rétroviseur extérieur gauche, électrique, chauffant..."></textarea>
+                </fieldset>
+                
+                <button type="submit">Envoyer ma demande</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
