@@ -50,6 +50,11 @@
                     
                     <label for="description">Description</label>
                     <textarea id="description" rows="3"></textarea>
+
+                    <!-- NOUVEAUX CHAMPS À AJOUTER ICI -->
+                    <label for="image">Image de la pièce</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <img id="image-preview" src="" alt="Aperçu de l'image" style="max-width: 200px; margin-top: 10px; display: none;">
                 </fieldset>
                 <button type="submit">Ajouter la Pièce</button>
                 <button type="button" id="cancel-edit-btn" style="display: none; background-color: #6c757d;">Annuler</button>

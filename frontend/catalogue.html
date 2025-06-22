@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Catalogue de Pièces - Votre Nom Garage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Une navigation simple pour les pages publiques -->
+    <nav class="public-nav">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">Mon Garage Auto</a>
+            <div>
+                <a href="index.html">Accueil</a>
+                <a href="catalogue.html" class="active">Catalogue</a>
+                <a href="demande.html">Demande sur Mesure</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="catalog-header">
+            <h1>Notre Catalogue de Pièces</h1>
+            <p>Trouvez la pièce dont vous avez besoin. Si elle n'est pas ici, faites une demande sur mesure !</p>
+        </header>
+
+        <section class="catalog-controls">
+            <input type="search" id="search-input" placeholder="Rechercher par nom de pièce...">
+            <select id="category-filter">
+                <option value="">Toutes les catégories</option>
+                <option value="Moteur">Moteur</option>
+                <option value="Carrosserie">Carrosserie</option>
+                <option value="Freinage">Freinage</option>
+                <option value="Électricité">Électricité</option>
+                <option value="Autre">Autre</option>
+            </select>
+        </section>
+        
+        <main id="pieces-grid" class="grid-container">
+            <!-- Les cartes produits seront injectées ici par JavaScript -->
+        </main>
+    </div>
+    
+    <script src="catalogue.js"></script>
+</body>
+</html>

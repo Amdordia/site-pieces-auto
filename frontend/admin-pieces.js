@@ -64,16 +64,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Logique d'envoi du formulaire (Création ou Mise à jour) ---
     // (Cette fonction reste identique, elle était déjà parfaite)
+    // Remplacez la fonction de gestion du formulaire dans admin-pieces.js
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const pieceData = {
-            nom: document.getElementById('nom').value,
-            reference: document.getElementById('reference').value,
-            prix: parseFloat(document.getElementById('prix').value),
-            categorie: document.getElementById('categorie').value,
-            compatibilite: document.getElementById('compatibilite').value,
-            description: document.getElementById('description').value,
-        };
+
+        // 1. On utilise FormData au lieu d'un objet JSON
+        const formData = new FormData();
+        
+        // 2. On ajoute chaque champ au formData
+        formData.append('nom', document.getElementById('nom').value);
+        formData.append('reference', document.getElementById('reference').value);
+        formData.append('prix', document.getElementById('prix').value);
+        // ... ajoutez tous vos autres champs de texte de la même manière ...
+        formData.append('description', document.getElementById('description').value);
+        formData.append('compatibilite', document.getElementById('compatibilite').value);
+        formData.append('categorie', document.getElementById('categorie').value);
+        
+        // On ajoute l'image SEULEMENT si un fichier a été sélectionné
+        const imageFile = document.getElementById('image').files[0];
+        if (imageFile) {
+            formData.append('image', imageFile);
+        }
 
         const method = currentlyEditingId ? 'PUT' : 'POST';
         const url = currentlyEditingId 
@@ -82,7 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             const response = await fetch(url, {
-                method: method, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }, body: JSON.stringify(pieceData)
+                method: method,
+                headers: {
+                    // ATTENTION: PAS de 'Content-Type'. Le navigateur le mettra pour nous.
+                    'Authorization': `Bearer ${token}`
+                },
+                body: formData // On envoie l'objet FormData
             });
             const result = await response.json();
             if (!response.ok) throw new Error(result.message || 'Erreur serveur');
@@ -95,6 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             formMessage.textContent = error.message;
             formMessage.className = 'error';
+        }
+    });
+
+    // -- Ajoutez la logique de prévisualisation --
+    document.getElementById('image').addEventListener('change', (event) => {
+        const preview = document.getElementById('image-preview');
+        const file = event.target.files[0];
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = 'block';
         }
     });
     
@@ -144,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Fonction pour réinitialiser le formulaire ---
     function resetForm() {
         form.reset();
+        document.getElementById('image-preview').style.display = 'none'; // Cacher la preview
         currentlyEditingId = null;
         formTitle.textContent = 'Ajouter une nouvelle pièce';
         formButton.textContent = 'Ajouter la Pièce';
