@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Charger toutes les pièces depuis l'API publique
     const loadPieces = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/public/pieces');
+            const response = await fetch('http://localhost:3000/api/pieces/public');
             if (!response.ok) throw new Error('Erreur de chargement des données.');
             
             allPieces = await response.json();

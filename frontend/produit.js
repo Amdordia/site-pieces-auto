@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Étape 2 : Appeler l'API pour récupérer les données de cette pièce
-        const response = await fetch(`http://localhost:3000/api/public/pieces/${pieceId}`);
+        const response = await fetch(`http://localhost:3000/api/pieces/public/${pieceId}`);
         
         if (!response.ok) {
             // Si la pièce n'existe pas (404) ou autre erreur

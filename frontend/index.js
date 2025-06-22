@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadFeaturedPieces = async () => {
         try {
             // On utilise la même API publique que pour le catalogue
-            const response = await fetch('http://localhost:3000/api/public/pieces');
+            const response = await fetch('http://localhost:3000/api/pieces/public');
             if (!response.ok) throw new Error('Erreur de chargement');
             
             let allPieces = await response.json();
